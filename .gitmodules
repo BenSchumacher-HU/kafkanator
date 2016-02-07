@@ -1,0 +1,9 @@
+[submodule "external/jsoncpp"]
+	path = external/jsoncpp
+	url = https://github.com/open-source-parsers/jsoncpp.git
+[submodule "external/cereal"]
+	path = external/cereal
+	url = https://github.com/USCiLab/cereal.git
+[submodule "external/catch"]
+	path = external/catch
+	url = https://github.com/philsquared/Catch.git
