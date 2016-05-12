@@ -1,9 +1,8 @@
 # Ubuntu 14.04 Trusty support
 sudo: required
 dist: trusty
+language: cpp
 
-language:
-    cpp
 # add PPAs with more up-to-date toolchains
 # install toolchains
 matrix:
@@ -14,7 +13,6 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-              # install boost
             - libboost-dev
             - g++-4.9
       env: COMPILER=g++-4.9
@@ -24,7 +22,6 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-              # install boost
             - libboost-dev
             - g++-5
       env: COMPILER=g++-5
@@ -35,9 +32,6 @@ addons:
     packages:
     # install boost
     - libboost-dev
-
-#before_install:
-#- git submodule update --init
     
 before_script:
 
