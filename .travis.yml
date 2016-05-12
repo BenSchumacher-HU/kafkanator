@@ -14,6 +14,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
+              # install boost
+            - libboost-dev
             - g++-4.9
       env: COMPILER=g++-4.9
     - compiler: gcc
@@ -22,6 +24,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
+              # install boost
+            - libboost-dev
             - g++-5
       env: COMPILER=g++-5
 
@@ -32,9 +36,9 @@ addons:
     # install boost
     - libboost-dev
 
-before_install:
-- git submodule update --init
-
+#before_install:
+#- git submodule update --init
+    
 before_script:
 
 script:
