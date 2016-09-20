@@ -41,7 +41,7 @@ class PhotoDB {
     
     unsigned int AddPhoto(std::string quotation, std::string comment);
     bool RemovePhoto(unsigned int id);
-    const std::list<Photo> GetPhotoList() const;
+    std::list<Photo> GetPhotoList() const;
     
     void ListAllPhotos() const;
     

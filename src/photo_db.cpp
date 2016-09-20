@@ -58,7 +58,7 @@ void PhotoDB::ListAllPhotos() const {
     std::cout << "ID: " << p.GetId() << ", comment: " << p.GetComment() << ", path: " << p.GetPath() << std::endl;
 }
 
-const std::list<Photo> PhotoDB::GetPhotoList() const {
+std::list<Photo> PhotoDB::GetPhotoList() const {
   return photoSet_;
 }
 
