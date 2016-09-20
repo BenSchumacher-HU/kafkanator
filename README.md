@@ -1,2 +1,2 @@
-[![Build Status](https://travis-ci.org/BenSchumacher-HU/kafkanator.svg?branch=master)](https://travis-ci.org/BenSchumacher-HU/kafkanator)
+[![Build Status](https://travis-ci.org/kafkanator/kafkanator.svg?branch=master)](https://travis-ci.org/kafkanator/kafkanator)
 # kafkanator
