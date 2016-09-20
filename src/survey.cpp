@@ -83,48 +83,18 @@ int main( int argc, const char* argv[] ) {
 //   mDB2.ListAllMappings();
 
   
-  if (vm.count("picture-directory")) { 
-    fs::path full_path = fs::system_complete( fs::path(vm["picture-directory"].as<std::string>()));
-    
-    
-    std::vector<std::string> files;
-    unsigned long file_count = 0;
-    if ( !fs::exists( full_path ) )
-    {
-      std::cout << "Not found: " << full_path.string() << std::endl;
-      return EXIT_FAILURE;
-    }
-
-    if ( fs::is_directory( full_path ) )
-    {
-      std::cout << std::endl << "Listing directory: " << full_path.string() << std::endl << std::endl;
-      fs::directory_iterator end_iter;
-      for ( fs::directory_iterator dir_itr( full_path ); dir_itr != end_iter; ++dir_itr ) {
-        try {
-          if ( fs::is_regular_file( dir_itr->status() ) ) {
-            ++file_count;
-            files.push_back(dir_itr->path().string());
-            std::cout << dir_itr->path().filename() << std::endl;
-          }
-        }
-        catch ( const std::exception &e) {
-          std::cout << dir_itr->path().filename() << " " << e.what() << std::endl;
-        }
-      }
-      std::cout << std::endl << file_count << " files" << std::endl;
-    }
-    
-    
+  std::list<Photo> tmpFiles = pDB.GetPhotoList();
+  std::vector<Photo> files {std::make_move_iterator(std::begin(tmpFiles)), std::make_move_iterator(std::end(tmpFiles))};
+  
+  for(unsigned int counter = 0; counter < files.size(); ++counter) {
     Mat image;
     unsigned int fileIndex;
     std::string filePath;
     for(unsigned int counter = 0; counter < files.size(); ++counter) {
-      // Showing Images
-
-      
-      srand ( time(NULL) );
+      // Showing Images      
+      srand (time(NULL));
       fileIndex = rand() % files.size();
-      filePath = files[fileIndex];
+      filePath = files[fileIndex].GetPath();
       image = imread(filePath, CV_LOAD_IMAGE_COLOR);
 
       if(!image.data) {
