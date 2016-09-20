@@ -58,6 +58,10 @@ void PhotoDB::ListAllPhotos() const {
     std::cout << "ID: " << p.GetId() << ", comment: " << p.GetComment() << ", path: " << p.GetPath() << std::endl;
 }
 
+const std::list<Photo> PhotoDB::GetPhotoList() const {
+  return photoSet_;
+}
+
 
 void PhotoDB::WriteIntoFile(PhotoDB db, std::string path) { 
   std::stringstream ss;
