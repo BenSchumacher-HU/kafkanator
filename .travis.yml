@@ -29,9 +29,12 @@ matrix:
 addons:
   apt:
     sources:
+        - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
     packages:
     # install boost
     - libboost-dev
+        - cmake
+        - cmake-data
     
 before_script:
 
