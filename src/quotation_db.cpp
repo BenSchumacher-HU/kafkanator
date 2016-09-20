@@ -3,6 +3,8 @@
 #include <iostream>
 #include <fstream>
 
+#include <random>
+
 
 Quotation::Quotation(unsigned int id, std::string author, std::string excerpt, std::string comment) {
   this->id_ = id;
@@ -62,6 +64,29 @@ void QuotationDB::ListAllQuotations() const {
   for(auto q : quotationSet_)
     std::cout << "ID: " << q.GetId() << ", author: " << q.GetAuthor() << ", excerpt: " << q.GetExcerpt() << ", comment: " << q.GetComment() << std::endl;
 }
+
+Quotation QuotationDB::GetRandomQuotation() const {
+  /*srand (time(NULL));
+  unsigned int index = rand() % quotationSet_.size();
+  
+  std::cout << "index: " << index << std::endl;
+  std::cout << "rand(): " << rand() << std::endl;
+  */
+  std::random_device rd;
+  std::mt19937 rng(rd());
+  std::uniform_int_distribution<int> uni (0, quotationSet_.size());
+  auto index = uni(rng);
+  unsigned int i = 0;
+  
+  for(auto q : quotationSet_) {
+    if(i == index) {
+      return q;
+    }
+    ++i;
+  }
+}
+
+
 
 
 void QuotationDB::WriteIntoFile(QuotationDB db, std::string path) { 

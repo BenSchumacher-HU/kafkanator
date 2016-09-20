@@ -45,6 +45,7 @@ class QuotationDB {
     bool RemoveQuotation(unsigned int id);
     
     void ListAllQuotations() const;
+    Quotation GetRandomQuotation() const;
     
     static void WriteIntoFile(QuotationDB db, std::string path);
     static QuotationDB LoadFromFile(std::string path);
