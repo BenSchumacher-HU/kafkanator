@@ -2,7 +2,6 @@
 sudo: required
 dist: trusty
 language: cpp
-compiler: gcc
 
 # add PPAs with more up-to-date toolchains
 # install toolchains 
