@@ -9,10 +9,10 @@ matrix:
   include:
     - compiler: gcc
       addons:
-       apt:
-         sources:
-          - george-edison55-precise-backports
-          - ubuntu-toolchain-r-test
+        apt:
+          sources:
+            - george-edison55-precise-backports
+            - ubuntu-toolchain-r-test
          packages:
             - cmake
             - cmake-data
@@ -37,7 +37,11 @@ matrix:
             - libboost-filesystem-dev
             - g++-5
       env: COMPILER=g++-5
-    
+
+before_install:
+  - sudo apt-get update
+
+
 before_script:
   - git clone https://github.com/Itseez/opencv.git
   - cd opencv
