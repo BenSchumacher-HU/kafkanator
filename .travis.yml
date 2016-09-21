@@ -8,7 +8,8 @@ compiler: gcc
 # install toolchains 
 matrix:
   include:
-    - addons:
+    - compiler: gcc
+      addons:
        apt:
          sources:
           - george-edison55-precise-backports
@@ -22,7 +23,8 @@ matrix:
             - libboost-filesystem-dev
             - g++-4.9
      env: COMPILER=g++-4.9
-    - addons:
+    - compiler: gcc
+      addons:
         apt:
           sources:
             - george-edison55-precise-backports
