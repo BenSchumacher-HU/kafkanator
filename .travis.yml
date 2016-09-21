@@ -1,0 +1,33 @@
+# Ubuntu 14.04 Trusty support
+sudo: required
+dist: trusty
+language: cpp
+
+# add PPAs with more up-to-date toolchains
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+      - doxygen
+      - libboost-all-dev
+      - libboost-system-dev
+      - libboost-filesystem-dev   
+    
+before_script:
+  - git clone https://github.com/Itseez/opencv.git
+  - cd opencv
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make -j4
+  - sudo make -j4 install
+  - cd ../..
+
+script:
+- mkdir build
+- cd build
+- cmake ..
+- make
