@@ -4,44 +4,18 @@ dist: trusty
 language: cpp
 
 # add PPAs with more up-to-date toolchains
-# install toolchains 
-matrix:
-  include:
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - george-edison55-precise-backports
-            - ubuntu-toolchain-r-test
-         packages:
-            - cmake
-            - cmake-data
-            - doxygen
-            - libboost-all-dev
-            - libboost-system-dev
-            - libboost-filesystem-dev
-            - g++-4.9
-     env: COMPILER=g++-4.9
-    - compiler: gcc
-      addons:
-        apt:
-          sources:
-            - george-edison55-precise-backports
-            - ubuntu-toolchain-r-test
-          packages:
-            - cmake
-            - cmake-data
-            - doxygen
-            - libboost-all-dev
-            - libboost-system-dev
-            - libboost-filesystem-dev
-            - g++-5
-      env: COMPILER=g++-5
-
-before_install:
-  - sudo apt-get update
-
-
+addons:
+  apt:
+    sources:
+      - george-edison55-precise-backports
+    packages:
+      - cmake
+      - cmake-data
+      - doxygen
+      - libboost-all-dev
+      - libboost-system-dev
+      - libboost-filesystem-dev   
+    
 before_script:
   - git clone https://github.com/Itseez/opencv.git
   - cd opencv
